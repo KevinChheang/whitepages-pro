@@ -3,7 +3,15 @@
   
   <div *ngIf="results">
     <h2>{{results.phone_number}}</h2>
-    <p>Type: {{results.belongs_to[0].type}}  Carrier: {{results.carrier}}</p>
+    <p><strong>Type:</strong> {{results.line_type}}  <strong>Carrier:</strong> {{results.carrier}}</p>
+    <p>PHONE NUMBER OWNER</p>
+    <p>{{results.belongs_to[0].name}}</p>
+    <p>Spam/Fraud Potential: <strong>Low Risk</strong></p>
+    <p>Got a span call from this number? <a href="#">Report it</a></p>
+    
+    <h4>Details of owner of {{results.phone_number}}</h4>
+    <p>Current address</p>
+    <p>{{results.current_addresses[0].street_line_1}}, {{results.current_addresses[0].city}}</p>
   </div>
   
 </div>
