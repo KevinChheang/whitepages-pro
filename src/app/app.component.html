@@ -1,8 +1,9 @@
-<div>
+<div class="container">
   <input [(ngModel)]="phoneNumber"/><button (click)="onGetData()">Search</button>
   
   <div *ngIf="results">
-    <p>{{results.phone_number}}</p>
+    <h2>{{results.phone_number}}</h2>
+    <p>Type: {{results.belongs_to[0].type}}  Carrier: {{results.carrier}}</p>
   </div>
   
 </div>
