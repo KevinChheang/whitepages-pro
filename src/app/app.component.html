@@ -2,16 +2,26 @@
   <input [(ngModel)]="phoneNumber"/><button (click)="onGetData()">Search</button>
   
   <div *ngIf="results">
-    <h2>{{results.phone_number}}</h2>
-    <p><strong>Type:</strong> {{results.line_type}}  <strong>Carrier:</strong> {{results.carrier}}</p>
-    <p>PHONE NUMBER OWNER</p>
-    <p>{{results.belongs_to[0].name}}</p>
-    <p>Spam/Fraud Potential: <strong>Low Risk</strong></p>
-    <p>Got a span call from this number? <a href="#">Report it</a></p>
+    <div class="first-section">
+      <h1>{{results.phone_number}}</h1>
+      <p><strong>Type:</strong> {{results.line_type}}  <strong>Carrier:</strong> {{results.carrier}}</p>
+      <p class="tiny-header">phone number owner</p>
+      <p>{{results.belongs_to[0].name}}</p>
+      <h3>Spam/Fraud Potential: <strong>Low Risk</strong></h3>
+      <p>Got a span call from this number? <a href="#">Report it</a></p>
+    </div>
     
-    <h4>Details of owner of {{results.phone_number}}</h4>
-    <p>Current address</p>
+    <h2>Details of owner of {{results.phone_number}}</h2>
+    <p class="tiny-header">current address</p>
     <p>{{results.current_addresses[0].street_line_1}}, {{results.current_addresses[0].city}}</p>
+    <p class="tiny-header">family members</p>
+    <p *ngFor="let result of results.associated_people">{{result.name}}</p>
+    <p class="tiny-header">phone numbers</p>
+    <p>{{results.phone_number}}</p>
+    <p class="tiny-header">criminal records</p>
+    <p><a href="#">View criminal record</a></p>
+    <p class="tiny-header">previous addresses</p>
+    <p><a href="#">Full address history</a></p>
   </div>
   
 </div>
